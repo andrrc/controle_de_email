@@ -8,6 +8,7 @@ if(isset($_POST['submit'])){
     header("location: listagemEmail.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,6 +16,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincular Usuario</title>
+    <link rel="stylesheet" href="../styles/vincularUsuario.css">
 </head>
 <body>
     <form action="" method="POST">

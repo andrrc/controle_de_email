@@ -23,8 +23,7 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem User and Email</title>
-    <link rel="stylesheet" href="../styles/listagem_user_email.css">
-    <link rel="stylesheet" href="../styles/listagemEmail.css">
+    <link rel="stylesheet" href="/planilhas/src/styles/listagem.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">

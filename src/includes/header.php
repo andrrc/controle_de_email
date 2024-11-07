@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="../styles/header.css">
-<link rel="stylesheet" href="../styles/global.css">
+<link rel="stylesheet" href="/planilhas/src/styles/header.css">
+<link rel="stylesheet" href="/planilhas/src/styles/global.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">

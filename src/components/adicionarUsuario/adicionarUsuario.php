@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
-    <link rel="stylesheet" href="/planilhas/src/components/AdicionarUsuario/style/adicionarUsuario.css">
+    <link rel="stylesheet" href="/planilhas/src/styles/form.css">
 </head>
 <body>
     <form method="POST" action="../../script/adicionarUsuario.php">
@@ -33,5 +33,8 @@
         </select>
         <input type="submit" value="Enviar" name="submit">
     </form>
+    <button type="button" class="btn-voltar" onclick="history.back()">
+    <span class="icon">&#8592;</span>
+</button>
 </body>
 </html>

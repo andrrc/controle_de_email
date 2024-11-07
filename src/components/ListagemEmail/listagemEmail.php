@@ -1,6 +1,6 @@
 <?php
-include_once("../includes/conexao.php");
-include_once("../includes/header.php");
+include_once("../../includes/conexao.php");
+include_once("../../includes/header.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,7 +9,7 @@ include_once("../includes/header.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem</title>
-    <link rel="stylesheet" href="../styles/listagemEmail.css">
+    <link rel="stylesheet" href="/planilhas/src/styles/listagem.css">
 </head>
 <body>
 <section class="container-listagem">

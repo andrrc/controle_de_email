@@ -1,15 +1,98 @@
-/* Estilo do corpo e contêiner principal */
 body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     background-color: #f4f4f9;
+    position: relative;
+}
+html,body{
+    height: 100%;
+}
+/* Estilo responsivo para tabela */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table-responsive table {
+    width: 100%;
+    min-width: 600px; /* Definindo uma largura mínima */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Definindo o estilo e largura mínima para cada coluna */
+.td-atributos {
+    background-color: #f4f4f9;
+    font-weight: bold;
+    padding: 12px;
+    min-width: 120px; /* Define a largura mínima para cada célula */
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+.td-dados {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+    min-width: 120px; /* Define a largura mínima para cada célula */
+    white-space: nowrap;
+}
+
+.email-cell {
+    min-width: 200px; /* Largura maior para a coluna de email */
+}
+
+.tr-dados:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .td-atributos, .td-dados {
+        font-size: 14px; /* Ajusta o tamanho da fonte em telas menores */
+    }
+}
+
+
+
+
+/* Estilo do corpo e contêiner principal */
+
+/* Estilo do botão Voltar */
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* Estilo do ícone no botão */
+.icon {
+    font-size: 20px;
+}
+
+/* Cor do botão ao passar o mouse */
+.btn-voltar:hover {
+    background-color: #0056b3;
 }
 
 /* Contêiner da listagem */
 .container-listagem,
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -78,15 +161,17 @@ td a:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 10px;
 }
 
 .ul-email li {
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .li-email {
     font-weight: bold;
+    padding-right: 10px;
 }
 
 /* Estilo das células de dados */
@@ -99,10 +184,17 @@ td a:hover {
     background-color: #ffffff;
 }
 
-/* Tamanho máximo das tabelas */
-table {
-    width: 100%;
-    table-layout: fixed;
+.container-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #007bff;
+    position: absolute;
+    bottom:50px;
+    right: 50%;
 }
 
 @media (max-width: 768px) {

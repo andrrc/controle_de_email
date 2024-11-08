@@ -18,32 +18,31 @@ include_once("../../includes/header.php");
         <button onclick="location.href='../adicionarUsuario/adicionarUsuario.php'">Adicionar Usuário</button>
         <button onclick="location.href='../vincularUsuario/vincularUsuario.php'">Vincular Usuário a um Email</button>
     </div>
-    <div class="table-responsive">
     <table>
+        <thead>
             <tr class="tr-atributos">
-                <th class="td-atributos">Email</th>
-                <th class="td-atributos">Hierarquia</th>
+                <th class="td-atributos">Nome</th>
+                <th class="td-atributos">Matricula</th>
                 <th class="td-atributos">Secretaria</th>
-                <th class="td-atributos">Informações Adicionais</th>
                 <th class="td-atributos">Ações</th>
             </tr>
+        </thead>
+        <tbody>
             <?php
-            $sql = "SELECT * FROM `email`";
+            $sql = "SELECT * FROM `user`";
             $resultado = mysqli_query($conexao, $sql);
             while($userData = mysqli_fetch_assoc($resultado)){
                 $id = $userData['id'];
                 echo "<tr class='tr-dados'>";
-                echo "<td class='td-dados email-cell'><a href='listagemEmail_User.php?id=".$id."'>".$userData['email']."</a></td>";
-                echo "<td class='td-dados'>".$userData['hierarquia']."</td>";
+                echo "<td class='td-dados'><a href='listagemUsuario_Email.php?id=".$id."'>".$userData['name']."</a></td>";
+                echo "<td class='td-dados'>".$userData['matricula']."</td>";
                 echo "<td class='td-dados'>".$userData['secretaria']."</td>";
-                echo "<td class='td-dados'>".$userData['info_adicional']."</td>";
-                echo "<td class='td-dados'><a href='editarEmail.php?id=".$id."'>Editar Email</a></td>";
+                echo "<td class='td-dados'><a href='../editarUsuario/editarUsuario.php?id=".$id."'>Editar</a></td>";
                 echo "</tr>";
             }
             ?>
+        </tbody>
     </table>
-    </div>
 </div>
-
 </body>
 </html>

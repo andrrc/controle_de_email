@@ -1,5 +1,5 @@
 <?php
-include_once("../includes/conexao.php");
+include_once("../../includes/conexao.php");
 $id = $_GET['id'];
 $sql = "SELECT * FROM email WHERE id = " . $id;
 $resultado_table_email = mysqli_query($conexao, $sql);
@@ -22,7 +22,7 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem User and Email</title>
+    <title>Listagem Email and User</title>
     <link rel="stylesheet" href="/planilhas/src/styles/listagem.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,15 +37,20 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
             echo "<li class='li-email'>" . $email . "</li>";
             echo "<li class='li-email'>" . $hierarquia . "</li>";
             echo "<li class='li-email'>" . $secretaria . "</li>";
-            echo "<li class='li-email'>" . $info_adicional . "</li>";
+            if($info_adicional == ''){
+
+            }else{
+            echo "<li class='li-email'>" . $info_adicional . "</li>";}
             ?>
         </ul>
+        <div class="table-responsive">
         <table>
             <tr>
             <td class="td-atributos">ID</td>
                 <td class="td-atributos">Nome</td>
                 <td class="td-atributos">Secretaria</td>
                 <td class="td-atributos">Matricula</td>
+                <td class="td-atributos">Ações</td>
             </tr>
             <?php
             //Nesta parte do codigo ele vai rodar um while para fatear o resultado do sql
@@ -66,15 +71,20 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
                     $matricula_user = $user['matricula'];
                     echo "<tr class='tr-dados'>";
                     echo "<td class='td-dados'>" . $id_user . "</td>";
-                    echo "<td class='td-dados'>" . $nome_user . "</td>";
+                    echo "<td class='td-dados emaill-cell'><a href='../listagemUsuario/listagemUsuario_Email.php?id=".$id_user."'>".$nome_user."</a></td>";
                     echo "<td class='td-dados'>" . $secretaria_user . "</td>";
                     echo "<td class='td-dados'>" . $matricula_user . "</td>";
+                    echo "<td class='td-dados'><a href='../desvincularUsuario/DesvincularUsuario.php?id_usuario=".$id_user."&id_email=".$id."'>Desvincular</a></td>";
+
                     echo "</tr>";
                 }
             }
             ?>
         </table>
     </div>
+    </div>
+    <div class="container-home">
+        <a href="../../index.php"><img src="../../img/icon_home.png" alt="icone de home" width="50px"></a>
+    </div>
 </body>
-
 </html>

@@ -1,4 +1,3 @@
-<!-- components/adicionarEmail/form.php -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,7 +8,7 @@
 
 </head>
 <body>
-<form method="POST" action="/planilhas/src/script/adicionarEmail.php">
+<form method="POST" action="/planilhas/src/script/adicionar.php">
     <label for="">Email:</label>
     <input type="email" name="email">
 

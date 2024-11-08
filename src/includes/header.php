@@ -7,8 +7,8 @@
     <nav class="header-nav">
         <h1 class="header-title">Prefeitura de Votorantim</h1>
         <ul class="header-ul">
-            <li class="header-li"><a class="header-link" href="../script/listagemEmail.php"> Listagem de Email</a></li>
-            <li class="header-li"><a class="header-link" href="../script/listagemEmail.php">Listagem de Usuario</a></li>
+            <li class="header-li"><a class="header-link" href="/planilhas/src/components/listagemEmail/listagemEmail.php"> Listagem de Email</a></li>
+            <li class="header-li"><a class="header-link" href="/planilhas/src/components/listagemUsuario/listagemUsuario.php">Listagem de Usuario</a></li>
         </ul>
     </nav>
 </header>

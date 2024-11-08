@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/planilhas/src/styles/form.css">
 </head>
 <body>
-    <form method="POST" action="../../script/adicionarUsuario.php">
+    <form method="POST" action="../../script/adicionarEmail.php">
         <label for="">Nome</label>
         <input type="text" name="nome">
 

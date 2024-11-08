@@ -1,11 +1,17 @@
 <?php
-include_once("../includes/conexao.php");
+$mensagem = '';
+include_once("../../includes/conexao.php");
 if(isset($_POST['submit'])){
     $id_user = $_POST['user'];
     $id_email = $_POST['email'];
     $sql = "INSERT INTO user_email(id_user,id_email) VALUES('$id_user','$id_email')";
     $result = mysqli_query($conexao,$sql);
-    header("location: listagemEmail.php");
+    if($result){
+        $mensagem = "O usuario foi vinculado com sucesso!";
+        header("refresh:1.5;url=../../components/ListagemEmail/listagemEmail.php");
+    }else{
+        $mensagem = "O usuario não foi vinculado com sucesso!". mysqli_error($conexao);
+    }
 }
 ?>
 
@@ -16,7 +22,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincular Usuario</title>
-    <link rel="stylesheet" href="../styles/vincularUsuario.css">
+    <link rel="stylesheet" href="../../styles/form.css">
 </head>
 <body>
     <form action="" method="POST">
@@ -40,6 +46,11 @@ if(isset($_POST['submit'])){
             ?>
         </select>
         <input type="submit" value="Enviar" name="submit">
+        <?php
+            if($mensagem){
+                echo "<p>".$mensagem."</p>";
+            }
+        ?>
     </form>
 </body>
 </html>

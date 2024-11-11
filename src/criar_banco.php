@@ -35,20 +35,20 @@ $sql_tables = [
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;",
 
-    "CREATE TABLE IF NOT EXISTS `user` (
+    "CREATE TABLE IF NOT EXISTS `usuario` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
-        `name` varchar(255) COLLATE utf8_bin NOT NULL,
+        `nome` varchar(255) COLLATE utf8_bin NOT NULL,
         `matricula` int(11) NOT NULL,
         `secretaria` varchar(15) COLLATE utf8_bin DEFAULT NULL,
         PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;",
 
-    "CREATE TABLE IF NOT EXISTS `user_email` (
-        `id_user` int(11) DEFAULT NULL,
+    "CREATE TABLE IF NOT EXISTS `usuario_email` (
+        `id_usuario` int(11) DEFAULT NULL,
         `id_email` int(11) DEFAULT NULL,
         KEY `id_email` (`id_email`),
-        KEY `id_user` (`id_user`),
-        CONSTRAINT `user_email_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+        KEY `id_usuario` (`id_usuario`),
+        CONSTRAINT `user_email_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
         CONSTRAINT `user_email_ibfk_2` FOREIGN KEY (`id_email`) REFERENCES `email` (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;"
 ];

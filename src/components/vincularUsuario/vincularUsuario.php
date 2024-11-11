@@ -2,9 +2,9 @@
 $mensagem = '';
 include_once("../../includes/conexao.php");
 if(isset($_POST['submit'])){
-    $id_user = $_POST['user'];
+    $id_usuario = $_POST['usuario'];
     $id_email = $_POST['email'];
-    $sql = "INSERT INTO user_email(id_user,id_email) VALUES('$id_user','$id_email')";
+    $sql = "INSERT INTO usuario_email(id_usuario,id_email) VALUES('$id_usuario','$id_email')";
     $result = mysqli_query($conexao,$sql);
     if($result){
         $mensagem = "O usuario foi vinculado com sucesso!";
@@ -27,17 +27,19 @@ if(isset($_POST['submit'])){
 <body>
     <form action="" method="POST">
         <label for="">Usuario:</label>
-        <select name="user" id="">
+        <select name="usuario" id="">
+            <option selected disabled>Escolher Usuario</option>
             <?php
-            $resultado = mysqli_query($conexao,"SELECT * FROM user");
+            $resultado = mysqli_query($conexao,"SELECT * FROM usuario");
             while($user = mysqli_fetch_assoc($resultado)){
-                echo "<option value=".$user['id'].">".$user['name']."</option>";
+                echo "<option value=".$user['id'].">".$user['nome']."</option>";
             }
             ?>
             
         </select>
         <label for="">Email</label>
         <select name="email" id="">
+            <option selected disabled>Escolher Email</option>
             <?php
             $resultado_email = mysqli_query($conexao,"SELECT * FROM email");
             while($email_datas = mysqli_fetch_assoc($resultado_email)){

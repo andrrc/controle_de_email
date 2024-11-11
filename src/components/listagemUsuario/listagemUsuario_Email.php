@@ -2,10 +2,10 @@
 include_once("../../includes/conexao.php");
 //Puxar as informações do usuario
 $id = $_GET['id'];
-$sql_pull_user = "SELECT * FROM user WHERE id = " . $id;
+$sql_pull_user = "SELECT * FROM usuario WHERE id = " . $id;
 $resultado_query_user = mysqli_query($conexao, $sql_pull_user);
 while ($user = mysqli_fetch_assoc($resultado_query_user)) {
-    $nome = $user['name'];
+    $nome = $user['nome'];
     $secretaria = $user['secretaria'];
     $matricula = $user['matricula'];
 }
@@ -45,11 +45,11 @@ while ($user = mysqli_fetch_assoc($resultado_query_user)) {
                 <td class="td-atributos">Ações</td>
             </tr>
             <?php
-            $sql_user_email = "SELECT * FROM user_email WHERE id_user =" . $id;
+            $sql_user_email = "SELECT * FROM usuario_email WHERE id_usuario =" . $id;
             $resultado_query_user_email = mysqli_query($conexao, $sql_user_email);
             while ($user_email = mysqli_fetch_assoc($resultado_query_user_email)) {
                 $id_email = $user_email['id_email'];
-                $id_user_email = $user_email['id_user'];
+                $id_user_email = $user_email['id_usuario'];
                 $sql_email = "SELECT * FROM email WHERE id =" . $id_email;
                 $resultado_email = mysqli_query($conexao, $sql_email);
                 while ($email = mysqli_fetch_assoc($resultado_email)) {

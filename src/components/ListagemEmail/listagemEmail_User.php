@@ -3,14 +3,14 @@ include_once("../../includes/conexao.php");
 $id = $_GET['id'];
 $sql = "SELECT * FROM email WHERE id = " . $id;
 $resultado_table_email = mysqli_query($conexao, $sql);
-while ($user_data = mysqli_fetch_assoc($resultado_table_email)) {
-    $email = $user_data['email'];
-    $hierarquia = $user_data['hierarquia'];
-    $secretaria = $user_data['secretaria'];
-    $info_adicional = $user_data['info_adicional'];
+while ($email_data = mysqli_fetch_assoc($resultado_table_email)) {
+    $email = $email_data['email'];
+    $hierarquia = $email_data['hierarquia'];
+    $secretaria = $email_data['secretaria'];
+    $info_adicional = $email_data['info_adicional'];
 }
-$sql_user_email = "SELECT * FROM user_email WHERE id_email =" . $id;
-$resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
+$sql_usuario_email = "SELECT * FROM usuario_email WHERE id_email =" . $id;
+$resultado_table_usuario_email = mysqli_query($conexao, $sql_usuario_email);
 
 
 
@@ -22,7 +22,7 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem Email and User</title>
+    <title>Listagem Email and usuario</title>
     <link rel="stylesheet" href="/planilhas/src/styles/listagem.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,28 +54,32 @@ $resultado_table_user_email = mysqli_query($conexao, $sql_user_email);
             </tr>
             <?php
             //Nesta parte do codigo ele vai rodar um while para fatear o resultado do sql
-            // Eu fiz uma query na tabela user_email porque é la onde esta registrado 
+            // Eu fiz uma query na tabela usuario_email porque é la onde esta registrado 
             //E la onde esta registrado qual usuario esta vinculado com tal email e vice-versa
-            while ($user_email = mysqli_fetch_assoc($resultado_table_user_email)) {
+            while ($tabela_usuario_email = mysqli_fetch_assoc($resultado_table_usuario_email)) {
 
-                $id_email = $user_email['id_email'];
+                $id_email = $tabela_usuario_email['id_email'];
+                $id_usuario_email = $tabela_usuario_email['id_usuario'];
 
-                $id_user_email = $user_email['id_user'];
+                $sql_usuario = "SELECT * FROM usuario WHERE id =" . $id_usuario_email;
+                $resultado_usuario = mysqli_query($conexao, $sql_usuario);
 
-                $sql_user = "SELECT * FROM user WHERE id =" . $id_user_email;
-                $resultado_user = mysqli_query($conexao, $sql_user);
-                while ($user = mysqli_fetch_assoc($resultado_user)) {
-                    $id_user = $user['id'];
-                    $nome_user = $user['name'];
-                    $secretaria_user = $user['secretaria'];
-                    $matricula_user = $user['matricula'];
+
+                while ($usuario = mysqli_fetch_assoc($resultado_usuario)) {
+                    $id_usuario = $usuario['id'];
+
+                    $nome_usuario = $usuario['nome'];
+
+                    $secretaria_usuario = $usuario['secretaria'];
+
+                    $matricula_usuario = $usuario['matricula'];
+                    
                     echo "<tr class='tr-dados'>";
-                    echo "<td class='td-dados'>" . $id_user . "</td>";
-                    echo "<td class='td-dados emaill-cell'><a href='../listagemUsuario/listagemUsuario_Email.php?id=".$id_user."'>".$nome_user."</a></td>";
-                    echo "<td class='td-dados'>" . $secretaria_user . "</td>";
-                    echo "<td class='td-dados'>" . $matricula_user . "</td>";
-                    echo "<td class='td-dados'><a href='../desvincularUsuario/DesvincularUsuario.php?id_usuario=".$id_user."&id_email=".$id."'>Desvincular</a></td>";
-
+                    echo "<td class='td-dados'>" . $id_usuario . "</td>";
+                    echo "<td class='td-dados emaill-cell'><a href='../listagemUsuario/listagemUsuario_Email.php?id=".$id_usuario."'>".$nome_usuario."</a></td>";
+                    echo "<td class='td-dados'>" . $secretaria_usuario . "</td>";
+                    echo "<td class='td-dados'>" . $matricula_usuario . "</td>";
+                    echo "<td class='td-dados'><a href='../desvincularUsuario/DesvincularUsuario.php?id_usuario=".$id_usuario."&id_email=".$id."'>Desvincular</a></td>";
                     echo "</tr>";
                 }
             }

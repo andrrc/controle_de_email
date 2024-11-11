@@ -29,14 +29,14 @@ include_once("../../includes/header.php");
         </thead>
         <tbody>
             <?php
-            $sql = "SELECT * FROM `user`";
+            $sql = "SELECT * FROM `usuario`";
             $resultado = mysqli_query($conexao, $sql);
-            while($userData = mysqli_fetch_assoc($resultado)){
-                $id = $userData['id'];
+            while($usuario_Data = mysqli_fetch_assoc($resultado)){
+                $id = $usuario_Data['id'];
                 echo "<tr class='tr-dados'>";
-                echo "<td class='td-dados'><a href='listagemUsuario_Email.php?id=".$id."'>".$userData['name']."</a></td>";
-                echo "<td class='td-dados'>".$userData['matricula']."</td>";
-                echo "<td class='td-dados'>".$userData['secretaria']."</td>";
+                echo "<td class='td-dados'><a href='listagemUsuario_Email.php?id=".$id."'>".$usuario_Data['nome']."</a></td>";
+                echo "<td class='td-dados'>".$usuario_Data['matricula']."</td>";
+                echo "<td class='td-dados'>".$usuario_Data['secretaria']."</td>";
                 echo "<td class='td-dados'><a href='../editarUsuario/editarUsuario.php?id=".$id."'>Editar</a></td>";
                 echo "</tr>";
             }

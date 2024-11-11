@@ -1,13 +1,13 @@
 <?php
 include_once "../../includes/conexao.php";
-$name = '';
+$nome = '';
 $matricula = '';
 $secretaria = '';
 $id_usuario = $_GET['id'];
 $sql = "SELECT * FROM user WHERE id=".$id_usuario.";";
 $result = mysqli_query($conexao, $sql);
 while($usuario = mysqli_fetch_assoc($result)){
-    $name = $usuario['name'];
+    $nome = $usuario['nome'];
     $matricula = $usuario['matricula'];
     $secretaria = $usuario['secretaria'];
 }
@@ -24,7 +24,7 @@ while($usuario = mysqli_fetch_assoc($result)){
     <form method="POST" action="../../script/atualizar.php">
         <?php echo "<input type='text' name='id' value='$id_usuario' hidden>"; ?>
         <label for="nome">Nome</label>
-        <input type="text" name="name" value="<?php echo $name; ?>">
+        <input type="text" name="nome" value="<?php echo $nome; ?>">
 
         <label for="matricula">Matrícula</label>
         <input type="number" name="matricula" value="<?php echo $matricula; ?>">
